@@ -55,7 +55,9 @@ $.ajax(settings).done(function (response) {
 
 
 
-
+$(".btn").click(function() {
+	$('html, body').animate({scrollTop: $("#pleaseSelect").offset().top}, 500);
+  });
 
 
 

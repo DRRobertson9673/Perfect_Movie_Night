@@ -1,0 +1,155 @@
+:root {
+    --myGreen: rgb(0, 255, 171);
+    --myBlack: #282828;
+    --myGrey: #353535;
+  }
+
+* {
+    font-family: 'Alexandria', sans-serif;
+  }
+
+  body {
+    background-color: var(--myGrey);
+  }
+
+#pleaseSelect {
+    font-size: 15px;
+    padding-top: 10px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    color: white;
+}
+
+#carousel {
+    height: calc(100vh - 95px);
+    background-color: black;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.jumbotron {
+    margin-bottom: 0px;
+}
+
+
+#buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#Netflix {
+    background: url('images/btn_Netflix.png') black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.btn {
+    height: 50px;
+    width: 150px;
+    opacity: .3;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-bottom: 10px;
+    border-style: none;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.btn:focus {
+    opacity: 1;
+}
+
+.btn-primary:focus,
+.btn-primary:active {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+#searchOptions {
+    display: flex;
+    flex-direction: row;
+}
+
+#posters {
+    height: 100vh;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.card-img-top:hover {
+    opacity: 0.8;
+}
+
+
+
+
+/* below here are the options for the character selection toggle buttons */
+.mediaSelector {
+    margin-right: 20px;
+    padding-left: 2px;
+    font-weight: lighter;
+    font-size: 15px;
+    line-height: 18px;
+    color: white;
+  }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 19px;
+    margin-right: 5px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    padding:3px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left:2px;
+    bottom:2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--myGreen);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(15px);
+    -ms-transform: translateX(15px);
+    transform: translateX(15px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+    
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
