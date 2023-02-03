@@ -128,7 +128,7 @@ $(document).on("click", ".btn", function(event) {
 
 
 
-$(".btn").click(function() {
+$(".platformBtn").click(function() {
 	$('html, body').animate({scrollTop: $("#pleaseSelect").offset().top}, 500);
   });
 

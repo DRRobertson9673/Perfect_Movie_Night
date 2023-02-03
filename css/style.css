@@ -234,3 +234,26 @@ input:checked+.slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.modal-body {
+  display: flex;
+  background-color: var(--myBlack);
+  color: white;
+}
+.movieDataPoster {
+  width: 50%;
+}
+
+.modal-header {
+  background-color: var(--myBlack);
+}
+
+.close {
+  color: white;
+  opacity: 1;
+}
+
+.close:hover {
+  color: white;
+  opacity: 1;
+}
