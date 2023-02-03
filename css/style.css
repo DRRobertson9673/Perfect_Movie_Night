@@ -178,14 +178,13 @@ body {
 
 /* below here are the options for the character selection toggle buttons */
 .mediaSelector {
-  margin-right: 20px;
+  margin-right: 10px;
   padding-left: 2px;
   font-weight: lighter;
   font-size: 15px;
   line-height: 18px;
   color: white;
 }
-
 .switch {
   position: relative;
   display: inline-block;
@@ -193,13 +192,11 @@ body {
   height: 19px;
   margin-right: 5px;
 }
-
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -208,11 +205,10 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--myBlack);
   -webkit-transition: .4s;
   transition: .4s;
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -224,22 +220,17 @@ body {
   -webkit-transition: .4s;
   transition: .4s;
 }
-
 input:checked+.slider {
-  background-color: var(--myGreen);
+  background-color: var(--myBlack);
 }
-
 input:checked+.slider:before {
   -webkit-transform: translateX(15px);
   -ms-transform: translateX(15px);
   transform: translateX(15px);
 }
-
 .slider.round {
   border-radius: 34px;
-
 }
-
 .slider.round:before {
   border-radius: 50%;
 }
