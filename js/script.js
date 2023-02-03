@@ -19,7 +19,7 @@ var userCountry = {
 var userCountry = "gb";
 var userService = "";
 var userType = "movie";
-var userGenre = "";
+var userGenre = "35"; // Not supposed to be fixed
 
 // const settings = {
 // 	"async": true,
@@ -59,41 +59,63 @@ $(document).on("click", ".btn", function(event) {
 
 	console.log(userService); 
 
-	 
+	//  /* 2. Listener for type
+	// ------------------------ */
+
+	// $("#TVSwitch").on("change", function() {
+
+	// 	if(this.checked) {
+	// 		// Get id, and populte userType variable
+	// 		userType = "series";
+	// 	} 
+
+	// 	if(!this.checked) {
+
+	// 		userType = "movie";
+
+	// 	}
+	// 	console.log(userType);
+	// });
+
+	// /* 3. Listener for Genre
+	// -------------------------*/
+
+	// $(document).on("click", ".genre-class", function() {
+
+	// 	userGenre = $(this).attr("data-genre");
+
+	// 	console.log(userGenre);
+		
+	// })
+
+	console.log(userCountry, userGenre, userService, userType);
+
+	// const settings = {
+	// "async": true,
+	// "crossDomain": true,
+	// "url": `https://streaming-availability.p.rapidapi.com/search/basic?country=${userCountry}&service=${userService}&type=${userType}&genre=${userGenre}&page=1&output_language=en&language=en`,
+	
+    // "method": "GET",
+	// "headers": {
+	// 	"X-RapidAPI-Key": "85cea767d7msh61dfa0edc659024p1cafe1jsnc76b9a205a8d",//apiKey.Charles,
+	// 	"X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
+	// 	}
+	// };
+
+	// $.ajax(settings).done(function (response) {
+	// //console.log(response);
+	// console.log(JSON.parse(response));
+
+	// //var parsedResponse = JSON.parse(response);
+
+	// //console.log(JSON.stringify(parsedResponse));​
+	// });
+
 });
 
-/* 2. Listener for type
------------------------- */
 
-$("#TVSwitch").on("change", function() {
 
-	if(this.checked) {
-		// Get id, and populte userType variable
-		userType = "series";
-	} 
 
-	if(!this.checked) {
-
-		userType = "movie";
-
-	}
-
-	console.log(userType);
-	//console.log("my cat");
-	//console.log(this.checked);
-});
-
-console.log(userType);
-
-/* 3. Listener for Genre
--------------------------*/
-
-$(document).on("click", ".genre-class", function() {
-
-	userGenre = $(this).attr("[data-genre]");
-
-	console.log(userGenre);
-})
 
 
 
