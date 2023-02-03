@@ -17,10 +17,13 @@
 
 <body>
 
-    <div class="container">
+    
 
-        <div id="carousel" class="jumbotron jumbotron-fluid">
-            <div class="container">
+        <div id="introVideo" class="jumbotron jumbotron-fluid">
+                <video id="video-background" preload muted autoplay loop>
+                    <source src="images/mixkit-friends-camping-watching-a-film-on-a-projector-23350-medium.mp4" type="video/mp4">
+                </video>
+                <div class="watchWhat">What will you<br>watch tonight?</div>
                 <!--
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -35,49 +38,42 @@
                   </div>
                 </div>
               </div>-->
-            </div>
+
         </div>
+
+
+        <div class="container">
         <div id="pleaseSelect">Select your streaming platform</div>
 
         <div id="buttons">
-            <button id="Netflix" type="button" class="btn btn-primary" data-bs-toggle="button"
-                autocomplete="off"></button>
-            <button id="Netflix" type="button" class="btn btn-primary" data-bs-toggle="button"
-                autocomplete="off"></button>
-            <button id="Netflix" type="button" class="btn btn-primary" data-bs-toggle="button"
-                autocomplete="off"></button>
-            <button id="Netflix" type="button" class="btn btn-primary" data-bs-toggle="button"
-                autocomplete="off"></button>
-            <button id="Netflix" type="button" class="btn btn-primary" data-bs-toggle="button"
-                autocomplete="off"></button>
-            <button id="Netflix" type="button" class="btn btn-primary" data-bs-toggle="button"
-                autocomplete="off"></button>
-            <button id="Netflix" type="button" class="btn btn-primary" data-bs-toggle="button"
-                autocomplete="off"></button>
-            <button id="Netflix" type="button" class="btn btn-primary" data-bs-toggle="button"
-                autocomplete="off"></button>
-            <button id="Netflix" type="button" class="btn btn-primary" data-bs-toggle="button"
-                autocomplete="off"></button>
-            <button id="Netflix" type="button" class="btn btn-primary" data-bs-toggle="button"
-                autocomplete="off"></button>
+            <button id="Netflix" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"></button>
+            <button id="Four" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"></button>
+            <button id="AppleTV" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"></button>
+            <button id="iPlayer" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"></button>
+            <button id="Disney" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"></button>
+            <button id="Prime" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"></button>
+            <button id="Now" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"></button>
+            <button id="Mubi" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"></button>
+            <button id="Zee5" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"></button>
+            <button id="BritBox" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"></button>
         </div>
 
         <div id="searchOptions">
-        <div class="mediaSelector">
-            <label class="switch">
-                <input type="checkbox" id="MovieSwitch">
-                <span class="slider round"></span>
-            </label>
-            Movies
+            <div class="mediaSelector">
+                <label class="switch">
+                    <input type="checkbox" id="MovieSwitch" checked>
+                    <span class="slider round"></span>
+                </label>
+                Movies
+            </div>
+            <div class="mediaSelector">
+                <label class="switch">
+                    <input type="checkbox" id="TVSwitch" checked>
+                    <span class="slider round"></span>
+                </label>
+                TV
+            </div>
         </div>
-        <div class="mediaSelector">
-            <label class="switch">
-                <input type="checkbox" id="TVSwitch">
-                <span class="slider round"></span>
-            </label>
-            TV
-        </div>
-    </div>
 
         <div id="posters">
             <div class="row row-cols-1 row-cols-md-4">
@@ -147,7 +143,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./js/config.js"></script>
-    <script src="./js/script.js"></script>   
+    <script src="./js/script.js"></script>
 
 </body>
+
 </html>
