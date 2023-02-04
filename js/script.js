@@ -113,7 +113,53 @@ $(document).on("click", ".btn", function(event) {
 
 });
 
+// Test event listener for the "Show Me My Recommendations" button, which should ultimately trigger the API call, data retrieval and search population
 
+$("#go-button").on("click", function() {
+
+	$("#poster-group").empty();
+
+	$("#modal-group").empty();
+
+	for (var i = 0; i < 8; i++) {
+
+		// Create and append different modals which will be populated with information relating to each element within the response.results array. This should precede the posters, as they will contain data-target values that relate to the modals
+
+		// Modal HTML content
+
+		$("#modal-group").append(`
+		<div id="movieDatawModal${i}" class="modal" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header border-0">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <img src="https://image.tmdb.org/t/p/w185/9TbjIF1p5a3EJXUFzX63Coa2JRM.jpg" class="movieDataPoster" alt="...">
+                description
+            </div>
+          </div>
+        </div>
+		</div>`)
+
+		// Search result poster HTML content
+
+		$("#poster-group").append(`
+		<div class="col mb-1 p-1">
+            <div class="card rounded-0 border-0">
+                <img src="https://image.tmdb.org/t/p/w185/9TbjIF1p5a3EJXUFzX63Coa2JRM.jpg" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDatawModal${i}" alt="...">
+            </div>
+        </div>`); // This is for test purposes only. Conditional will eventually be i < response.results.length, and image source will be response.results[i].posterURLs[185], after the response has been parsed
+	}
+
+
+})
+
+// EUREKA! It all seems to work. I have coded it within the loop so that, as each poster is created, its own specific modal will also be created and appended. That makes it easier for us to dynamically populate each modal directly from the search response data.
+
+// Next step is incorporating the information from the response in line with making API calls, designing and properly populating the modal, and then the watchlist/local storage aspect.
 
 
 
