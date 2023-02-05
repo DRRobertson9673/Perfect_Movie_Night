@@ -57,7 +57,7 @@ $(document).on("click", ".btn", function (event) {
 	event.preventDefault();
 	userService = ($(this).attr("id")).toLowerCase();
 
-	console.log(userService);
+	// console.log(userService);
 
 	//  /* 2. Listener for type
 	// ------------------------ */
@@ -88,7 +88,7 @@ $(document).on("click", ".btn", function (event) {
 
 	// })
 
-	console.log(userCountry, userGenre, userService, userType);
+	//console.log(userCountry, userGenre, userService, userType);
 
 	// const settings = {
 	// "async": true,
@@ -113,49 +113,76 @@ $(document).on("click", ".btn", function (event) {
 
 });
 
-// Test event listener for the "Show Me My Recommendations" button, which should ultimately trigger the API call, data retrieval and search population
+// This is the code t
 
 $("#go-button").on("click", function () {
 
 	$("#poster-group").empty();
 
-	$("#modal-group").empty();
+	const settings = {
+		"async": true,
+		"crossDomain": true,
+		"url": "https://streaming-availability.p.rapidapi.com/search/basic?country=gb&service=" + userService + "&type=" + userType + userGenre + "&output_language=en&language=en",
+		"method": "GET",
+		"headers": {
+			"X-RapidAPI-Key": "85cea767d7msh61dfa0edc659024p1cafe1jsnc76b9a205a8d",
+			"X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
+		}
+	};
+	$.ajax(settings).done(function (response) {
+		let parsedResponse = JSON.parse(response);
+		for (let i = 0; i < 8; i++) {
 
-	for (var i = 0; i < 8; i++) {
+			var imdbID = parsedResponse.results[i].imdbID
+			var getPoster = parsedResponse.results[i].posterURLs.original
 
-		// Create and append different modals which will be populated with information relating to each element within the response.results array. This should precede the posters, as they will contain data-target values that relate to the modals
+			$("#poster-group").append(`
+				<div class="col mb-1 p-1">
+					<div data-value="` + imdbID + `" class="card rounded-0 border-0">
+						<img src="` + getPoster + `" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDatawModal" alt="Movie Poster">
+					</div>
+				</div>`)
 
-		// Modal HTML content
-
-		$("#modal-group").append(`
-		<div id="movieDatawModal${i}" class="modal" tabindex="-1">
-		<div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header border-0">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <img src="https://image.tmdb.org/t/p/w185/9TbjIF1p5a3EJXUFzX63Coa2JRM.jpg" class="movieDataPoster" alt="...">
-                description
-            </div>
-          </div>
-        </div>
-		</div>`)
-
-		// Search result poster HTML content
-
-		$("#poster-group").append(`
-		<div class="col mb-1 p-1">
-            <div class="card rounded-0 border-0">
-                <img src="https://image.tmdb.org/t/p/w185/9TbjIF1p5a3EJXUFzX63Coa2JRM.jpg" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDatawModal${i}" alt="...">
-            </div>
-        </div>`); // This is for test purposes only. Conditional will eventually be i < response.results.length, and image source will be response.results[i].posterURLs[185], after the response has been parsed
-	}
-
-
+			clicker()
+		}
+	})
 })
+
+
+
+// Create and append different modals which will be populated with information relating to each element within the response.results array. This should precede the posters, as they will contain data-target values that relate to the modals
+
+// Modal HTML content
+
+/*$("#modal-group").append(`
+<div id="movieDatawModal${i}" class="modal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+	<div class="modal-header border-0">
+	  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	  </button>
+	</div>
+	<div class="modal-body">
+		<img src="https://image.tmdb.org/t/p/w185/9TbjIF1p5a3EJXUFzX63Coa2JRM.jpg" class="movieDataPoster" alt="...">
+		description
+	</div>
+  </div>
+</div>
+</div>`)*/
+
+// Search result poster HTML content
+
+
+// 	<div class="col mb-1 p-1">
+//         <div class="card rounded-0 border-0">
+//             <img src="https://image.tmdb.org/t/p/w185/9TbjIF1p5a3EJXUFzX63Coa2JRM.jpg" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDatawModal${i}" alt="...">
+//         </div>
+//     </div>`); // This is for test purposes only. Conditional will eventually be i < response.results.length, and image source will be response.results[i].posterURLs[185], after the response has been parsed
+
+
+
+// })
 
 // EUREKA! It all seems to work. I have coded it within the loop so that, as each poster is created, its own specific modal will also be created and appended. That makes it easier for us to dynamically populate each modal directly from the search response data.
 
@@ -196,17 +223,17 @@ $("#genreSelect").change(function () {
 });
 
 // code to make an api call to OMDB using imdbID to get movie/show details
+
+function clicker() {
 $(".card").click(function () {
-	console.log(this.dataset.value)
 	var movie = this.dataset.value;
 	var queryURL = "https://www.omdbapi.com/?i=" + movie + "&apikey=trilogy";
 	$.ajax({
 		url: queryURL,
 		method: "GET"
 	}).then(function (response) {
-		console.log(response)
 		var poster = response.Poster
-		var title = response.Title.slice(1)
+		var title = response.Title
 		var genre = response.Genre
 		var director = response.Director
 		var cast = response.Actors
@@ -219,3 +246,4 @@ $(".card").click(function () {
 		$('.plot').text(plot)
 	});
 });
+}

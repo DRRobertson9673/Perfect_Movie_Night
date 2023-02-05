@@ -346,6 +346,7 @@ input:checked+.slider:before {
 }
 
 #watchlist-button {
+  float: right;
   height: 30px;
   width: 135px;
   opacity: 1;
