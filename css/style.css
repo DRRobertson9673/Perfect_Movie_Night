@@ -438,6 +438,15 @@ input:checked+.slider:before {
   #buttons {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+  }
+
+  #pleaseSelect {
+    text-align: center;
+    font-size: 15px;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-bottom: 4px;
+    color: white;
   }
 }
