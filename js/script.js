@@ -19,7 +19,7 @@ var userCountry = {
 var userCountry = "gb";
 var userService = "";
 var userType = "movie";
-var userGenre = "35"; // Not supposed to be fixed
+var userGenre = "";
 
 // const settings = {
 // 	"async": true,
@@ -171,14 +171,11 @@ $("#go-button").on("click", function() {
 
 
 
-
-
-
 $(".platformBtn").click(function() {
 	$('html, body').animate({scrollTop: $("#pleaseSelect").offset().top}, 500);
   });
 
-$('input:checkbox').change(
+$('#TVSwitch').change(
 	function () {
 		if ($(this).is(':checked')) {
 			userType = "series";
@@ -191,3 +188,7 @@ $('input:checkbox').change(
 
 		}
 	});
+
+$("#genreSelect").change (function () {  
+	userGenre = $(this).children("option:selected").val();
+});  
