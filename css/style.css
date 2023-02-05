@@ -300,6 +300,17 @@ input:checked+.slider:before {
   border-radius: 50%;
 }
 
+.hide {
+  display: none;
+}
+
+.feedback {
+  color: red;
+  font-size: 80%;
+  margin-top: 10px;
+
+}
+
 .modal-body {
   display: flex;
   background-color: var(--myBlack);
