@@ -13,7 +13,7 @@ $.ajax(settings).done(function (response) {
 	console.log(response);
 }); */
 var userCountry = {
-    netflix: ["ar","at","au","be","br","ca","ch","cl","co","cz","de","dk","ec","ee","es","fi","fr","gb","gr","hu","id","ie","in","it","jp","kr","lt","lv","mx","my","nl","no","nz","pe","ph","pl","pt","ro","ru","se","sg","th","tr","us","ve","za"],
+	netflix: ["ar", "at", "au", "be", "br", "ca", "ch", "cl", "co", "cz", "de", "dk", "ec", "ee", "es", "fi", "fr", "gb", "gr", "hu", "id", "ie", "in", "it", "jp", "kr", "lt", "lv", "mx", "my", "nl", "no", "nz", "pe", "ph", "pl", "pt", "ro", "ru", "se", "sg", "th", "tr", "us", "ve", "za"],
 };
 
 var userCountry = "gb";
@@ -25,7 +25,7 @@ var userGenre = "";
 // 	"async": true,
 // 	"crossDomain": true,
 // 	"url": `https://streaming-availability.p.rapidapi.com/search/basic?country=${userCountry}&service=${userService}&type=${userType}&genre=${userGenre}&page=1&output_language=en&language=en`,
-	
+
 //     "method": "GET",
 // 	"headers": {
 // 		"X-RapidAPI-Key": apiKey.Charles,
@@ -53,11 +53,11 @@ var userGenre = "";
 /* 1. Listener for the service buttons - TESTED AND WORKS!!! NEXT STEP IS TO MAKE THEM DO WHAT WE WANT THEM TO.
 --------------------------------------*/
 
-$(document).on("click", ".btn", function(event) {
+$(document).on("click", ".btn", function (event) {
 	event.preventDefault();
-	userService = ($(this).attr("id")).toLowerCase(); 
+	userService = ($(this).attr("id")).toLowerCase();
 
-	console.log(userService); 
+	console.log(userService);
 
 	//  /* 2. Listener for type
 	// ------------------------ */
@@ -85,7 +85,7 @@ $(document).on("click", ".btn", function(event) {
 	// 	userGenre = $(this).attr("data-genre");
 
 	// 	console.log(userGenre);
-		
+
 	// })
 
 	console.log(userCountry, userGenre, userService, userType);
@@ -94,8 +94,8 @@ $(document).on("click", ".btn", function(event) {
 	// "async": true,
 	// "crossDomain": true,
 	// "url": `https://streaming-availability.p.rapidapi.com/search/basic?country=${userCountry}&service=${userService}&type=${userType}&genre=${userGenre}&page=1&output_language=en&language=en`,
-	
-    // "method": "GET",
+
+	// "method": "GET",
 	// "headers": {
 	// 	"X-RapidAPI-Key": "85cea767d7msh61dfa0edc659024p1cafe1jsnc76b9a205a8d",//apiKey.Charles,
 	// 	"X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
@@ -115,7 +115,7 @@ $(document).on("click", ".btn", function(event) {
 
 // Test event listener for the "Show Me My Recommendations" button, which should ultimately trigger the API call, data retrieval and search population
 
-$("#go-button").on("click", function() {
+$("#go-button").on("click", function () {
 
 	$("#poster-group").empty();
 
@@ -171,9 +171,9 @@ $("#go-button").on("click", function() {
 
 
 // code to make page scroll up when platform button is clicked
-$(".platformBtn").click(function() {
-	$('html, body').animate({scrollTop: $("#pleaseSelect").offset().top}, 500);
-  });
+$(".platformBtn").click(function () {
+	$('html, body').animate({ scrollTop: $("#pleaseSelect").offset().top }, 500);
+});
 
 // code to switch colour of user choice series or movie and set the variable when the clicker is toggled
 $('#TVSwitch').change(
@@ -191,19 +191,19 @@ $('#TVSwitch').change(
 	});
 
 // code to set the variable when an option is selected from the drop down genre menu
-$("#genreSelect").change (function () {  
+$("#genreSelect").change(function () {
 	userGenre = $(this).children("option:selected").val();
 });
 
 // code to make an api call to OMDB using imdbID to get movie/show details
 $(".card").click(function () {
 	console.log(this.dataset.value)
-    var movie = this.dataset.value;
-    var queryURL = "https://www.omdbapi.com/?i=" + movie + "&apikey=trilogy";
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
+	var movie = this.dataset.value;
+	var queryURL = "https://www.omdbapi.com/?i=" + movie + "&apikey=trilogy";
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+	}).then(function (response) {
 		console.log(response)
 		var poster = response.Poster
 		var title = response.Title.slice(1)
@@ -217,5 +217,5 @@ $(".card").click(function () {
 		$('.director').text('Director: ' + director)
 		$('.cast').text('Cast: ' + cast)
 		$('.plot').text(plot)
-    });
+	});
 });

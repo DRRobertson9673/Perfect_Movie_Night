@@ -30,6 +30,7 @@ body {
   margin-right: 2px;
   margin-left: 2px;
 }
+
 .watchWhat {
   width: 100vw;
   position: absolute;
@@ -47,16 +48,16 @@ body {
   margin-bottom: 0px;
 }
 
-#video-background { 
+#video-background {
   opacity: .5;
   height: calc(100vh - 95px);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
-    width:100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+  width: 100%;
 }
 
 #buttons {
@@ -231,6 +232,7 @@ body {
   line-height: 18px;
   color: grey;
 }
+
 .mediaSelectorSelected {
   margin-top: 5px;
   margin-right: 10px;
@@ -240,6 +242,7 @@ body {
   line-height: 18px;
   color: white;
 }
+
 .switch {
   position: relative;
   display: inline-block;
@@ -247,11 +250,13 @@ body {
   height: 19px;
   margin-right: 5px;
 }
+
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
+
 .slider {
   position: absolute;
   cursor: pointer;
@@ -264,6 +269,7 @@ body {
   -webkit-transition: .4s;
   transition: .4s;
 }
+
 .slider:before {
   position: absolute;
   content: "";
@@ -275,17 +281,21 @@ body {
   -webkit-transition: .4s;
   transition: .4s;
 }
+
 input:checked+.slider {
   background-color: var(--myBlack);
 }
+
 input:checked+.slider:before {
   -webkit-transform: translateX(15px);
   -ms-transform: translateX(15px);
   transform: translateX(15px);
 }
+
 .slider.round {
   border-radius: 34px;
 }
+
 .slider.round:before {
   border-radius: 50%;
 }
@@ -296,6 +306,7 @@ input:checked+.slider:before {
   color: white;
   padding: 0px 5px 5px 5px;
 }
+
 .movieDataPoster {
   max-width: 50%;
 }
@@ -349,4 +360,84 @@ input:checked+.slider:before {
 #watchlist-button:hover {
   background-color: grey;
   color: white;
+}
+
+@media (max-width: 992px) {
+  #Netflix {
+    background: url("../images/btn_Netflix_small.png") black;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #Now {
+    background: url("../images/btn_Now_small.png") white;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #Prime {
+    background: url("../images/btn_Prime_small.png") rgb(36, 48, 63);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #iPlayer {
+    background: url("../images/btn_iPlayer_small.png") black;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #AppleTV {
+    background: url("../images/btn_AppleTV_small.png") black;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #Disney {
+    background: url("../images/btn_Disney_small.png") black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #Four {
+    background: url("../images/btn_4_small.png") rgb(30, 30, 30);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #BritBox {
+    background: url("../images/btn_BritBox_small.png") rgb(26, 36, 45);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #Zee5 {
+    background: url("../images/btn_Zee5_small.png") white;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #Mubi {
+    background: url("../images/btn_Mubi_small.png") black;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+@media (max-width: 576px) {
+  #buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
