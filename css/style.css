@@ -1,4 +1,5 @@
 :root {
+  --myRed: rgb(255, 0, 81);
   --myGreen: rgb(0, 255, 171);
   --myBlack: #282828;
   --myGrey: #353535;
@@ -57,7 +58,6 @@ body {
     z-index: -100;
     width:100%;
 }
-
 
 #buttons {
   display: flex;
@@ -158,9 +158,33 @@ body {
   outline: 0px !important;
 }
 
+#menuBar {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
 #searchOptions {
   display: flex;
   flex-direction: row;
+}
+
+#go-button {
+  height: 30px;
+  width: 80px;
+  opacity: 1;
+  margin-right: 2px;
+  margin-bottom: 0px;
+  border-style: none;
+  background-color: white;
+  color: black;
+  line-height: 0px;
+  margin-bottom: 5px;
+}
+
+#go-button:hover {
+  background-color: grey;
+  color: white;
 }
 
 #posters {
@@ -175,12 +199,21 @@ body {
 
 
 
-
 /* below here are the options for the character selection toggle buttons */
 .mediaSelector {
+  margin-top: 5px;
   margin-right: 10px;
   padding-left: 2px;
-  font-weight: lighter;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+  color: grey;
+}
+.mediaSelectorSelected {
+  margin-top: 5px;
+  margin-right: 10px;
+  padding-left: 2px;
+  font-weight: bold;
   font-size: 15px;
   line-height: 18px;
   color: white;

@@ -58,22 +58,24 @@
             <button id="BritBox" type="button" class="btn btn-primary platformBtn" data-bs-toggle="button" autocomplete="off"></button>
         </div>
 
+        <div id="menuBar">
         <div id="searchOptions">
-            <div class="mediaSelector">                
+            <div id="moviesLabel" class="mediaSelectorSelected">                
                 Movies
             </div>
-            <div class="mediaSelector">
+            <div id="seriesLabel" class="mediaSelector">
                 <label class="switch">
                     <input type="checkbox" id="TVSwitch">
                     <span class="slider round"></span>
                 </label>
-                TV
+                Series
             </div>
-            <button type="button" class="btn btn-primary" id = "go-button">Primary</button>
         </div>
+        <button type="button" class="btn btn-primary" id="go-button">Search</button>
+    </div>
 
         <div id="posters">
-            <div class="row row-cols-1 row-cols-md-4" id = "poster-group">
+            <div class="row row-cols-1 row-cols-md-4" id="poster-group">
 
                 <div class="col mb-1 p-1">
                     <div class="card rounded-0 border-0">

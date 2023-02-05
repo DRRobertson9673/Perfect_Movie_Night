@@ -178,7 +178,16 @@ $(".platformBtn").click(function() {
 	$('html, body').animate({scrollTop: $("#pleaseSelect").offset().top}, 500);
   });
 
+$('input:checkbox').change(
+	function () {
+		if ($(this).is(':checked')) {
+			userType = "series";
+			$("#seriesLabel").addClass("mediaSelectorSelected").removeClass("mediaSelector");
+			$("#moviesLabel").addClass("mediaSelector").removeClass("mediaSelectorSelected");
+		} else {
+			userType = "movie";
+			$("#seriesLabel").addClass("mediaSelector").removeClass("mediaSelectorSelected");
+			$("#moviesLabel").addClass("mediaSelectorSelected").removeClass("mediaSelector");
 
-
-
-
+		}
+	});
