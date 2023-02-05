@@ -216,7 +216,10 @@ body {
   opacity: 0.8;
 }
 
-
+#selectionInfo {
+  display: flex;
+  flex-direction: column;
+}
 
 /* below here are the options for the character selection toggle buttons */
 .mediaSelector {
@@ -291,13 +294,15 @@ input:checked+.slider:before {
   display: flex;
   background-color: var(--myBlack);
   color: white;
+  padding: 0px 5px 5px 5px;
 }
 .movieDataPoster {
-  width: 50%;
+  max-width: 50%;
 }
 
 .modal-header {
   background-color: var(--myBlack);
+  height: 25px;
 }
 
 .close {
@@ -305,7 +310,43 @@ input:checked+.slider:before {
   opacity: 1;
 }
 
+.modal-header .close {
+  padding: .5rem .75rem;
+}
+
 .close:hover {
   color: white;
   opacity: 1;
+}
+
+#selectionInfo {
+  padding-left: 20px;
+}
+
+#selectionInfo .title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+#selectionInfo .plot {
+  margin-top: 10px;
+  margin-right: 30px;
+  font-weight: lighter;
+}
+
+#watchlist-button {
+  height: 30px;
+  width: 135px;
+  opacity: 1;
+  margin-top: 60px;
+  border-style: none;
+  background-color: white;
+  color: black;
+  font-size: 13px;
+  line-height: 0px;
+}
+
+#watchlist-button:hover {
+  background-color: grey;
+  color: white;
 }

@@ -41,7 +41,6 @@
 
         </div>
 
-
         <div class="container">
         <div id="pleaseSelect">Select your streaming platform</div>
 
@@ -73,8 +72,6 @@
             <div id="genreLabel" class="mediaSelectorSelected">                
                 Genre:
             </div>
-
-
             <select id="genreSelect" class="form-select" aria-label="Genre selection">
                 <option selected>All</option>
                 <option value="&genre=1">Biography</option>
@@ -97,9 +94,6 @@
                 <option value="&genre=9648">Mystery</option>
                 <option value="&genre=99">Documentary</option>
               </select>
-
-
-
         </div>
         <button type="button" class="btn btn-primary" id="go-button">Search</button>
     </div>
@@ -108,8 +102,8 @@
             <div class="row row-cols-1 row-cols-md-4" id="poster-group">
 
                 <div class="col mb-1 p-1">
-                    <div class="card rounded-0 border-0">
-                        <img src="images/testPoster.jpeg" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDatawModal" alt="...">
+                    <div data-value="tt9850370" class="card rounded-0 border-0">
+                        <img src="images/testPoster.jpeg" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDatawModal" alt="Movie Poster">
                     </div>
                 </div>
 
@@ -157,11 +151,6 @@
 
             </div>
         </div>
-
-
-
-
-
 
     </div>
 
@@ -173,14 +162,22 @@
     <div id="movieDatawModal" class="modal" tabindex="-1">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <div class="modal-header border-0">
+            <div class="modal-header border-0 rounded-0">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-                <img src="images/testPoster.jpeg" class="movieDataPoster" alt="...">
-                description
+                <img src="" class="movieDataPoster" alt="poster">
+                <div id="selectionInfo">
+                <div class="title"></div>
+                <div class="genre"></div>
+                <div class="director"></div>
+                <div class="cast"></div>
+                <div class="plot"></div>
+                <button type="button" class="btn btn-primary" id="watchlist-button">Add to watchlist</button>
+            </div>
+
             </div>
           </div>
         </div>

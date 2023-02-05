@@ -170,11 +170,12 @@ $("#go-button").on("click", function() {
 
 
 
-
+// code to make page scroll up when platform button is clicked
 $(".platformBtn").click(function() {
 	$('html, body').animate({scrollTop: $("#pleaseSelect").offset().top}, 500);
   });
 
+// code to switch colour of user choice series or movie and set the variable when the clicker is toggled
 $('#TVSwitch').change(
 	function () {
 		if ($(this).is(':checked')) {
@@ -189,6 +190,32 @@ $('#TVSwitch').change(
 		}
 	});
 
+// code to set the variable when an option is selected from the drop down genre menu
 $("#genreSelect").change (function () {  
 	userGenre = $(this).children("option:selected").val();
-});  
+});
+
+// code to make an api call to OMDB using imdbID to get movie/show details
+$(".card").click(function () {
+	console.log(this.dataset.value)
+    var movie = this.dataset.value;
+    var queryURL = "https://www.omdbapi.com/?i=" + movie + "&apikey=trilogy";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+		console.log(response)
+		var poster = response.Poster
+		var title = response.Title.slice(1)
+		var genre = response.Genre
+		var director = response.Director
+		var cast = response.Actors
+		var plot = response.Plot
+		$('.movieDataPoster').attr("src", poster)
+		$('.title').text(title)
+		$('.genre').text(genre)
+		$('.director').text('Director: ' + director)
+		$('.cast').text('Cast: ' + cast)
+		$('.plot').text(plot)
+    });
+});
