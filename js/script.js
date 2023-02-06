@@ -11,7 +11,7 @@ var userGenre = "";
 
 // Click Event Listener for the streaming service buttons
 
-$(document).on("click", ".btn", function (event) {
+$(document).on("click", ".platformBtn", function (event) {
 
 	event.preventDefault();
 
@@ -68,57 +68,35 @@ $("#genreSelect").change(function () {
 
 $("#go-button").on("click", function () {
 
-	// It is mandatory to choose a service. Therefore if the user does not choose a service, a message will appear telling the user to pick a service
+	$("#poster-group").empty();
 
-	if(!userService) {
+	const settings = {
+		"async": true,
+		"crossDomain": true,
+		"url": "https://streaming-availability.p.rapidapi.com/search/basic?country=gb&service=" + userService + "&type=" + userType + userGenre + "&output_language=en&language=en",
+		"method": "GET",
+		"headers": {
+			"X-RapidAPI-Key": "85cea767d7msh61dfa0edc659024p1cafe1jsnc76b9a205a8d",
+			"X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
+		}
+	};
+	$.ajax(settings).done(function (response) {
+		let parsedResponse = JSON.parse(response);
+		for (let i = 0; i < parsedResponse.results.length; i++) {
 
-		$("#feedback").attr("class", "visible feedback").text("Please choose a streaming service");
+			var imdbID = parsedResponse.results[i].imdbID
+			var getPoster = parsedResponse.results[i].posterURLs.original
 
-		setTimeout(function() {
+			$("#poster-group").append(`
+				<div class="col mb-1 p-1">
+					<div data-value="` + imdbID + `" class="card rounded-0 border-0">
+						<img src="` + getPoster + `" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDatawModal" alt="Movie Poster">
+					</div>
+				</div>`)
 
-			$("#feedback").attr("class", "hide");
-
-			$("#feedback").empty();
-
-			location.reload();
-
-		}, 750);	
-		
-	} else {
-
-		$("#poster-group").empty();
-
-		const settings = {
-			"async": true,
-			"crossDomain": true,
-			"url": "https://streaming-availability.p.rapidapi.com/search/basic?country=gb&service=" + userService + "&type=" + userType + userGenre + "&output_language=en&language=en",
-			"method": "GET",
-			"headers": {
-				"X-RapidAPI-Key": "85cea767d7msh61dfa0edc659024p1cafe1jsnc76b9a205a8d",
-				"X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
-			}
-		};
-
-		$.ajax(settings).done(function (response) {
-
-			let parsedResponse = JSON.parse(response);
-
-			for (let i = 0; i < parsedResponse.length; i++) {
-
-				var imdbID = parsedResponse.results[i].imdbID
-				var getPoster = parsedResponse.results[i].posterURLs.original
-
-				$("#poster-group").append(`
-					<div class="col mb-1 p-1">
-						<div data-value="${imdbID}" class="card rounded-0 border-0">
-							<img src="${getPoster}" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDatawModal" alt="Movie Poster">
-						</div>
-					</div>`)
-
-				clicker()
-			}
-		})
-	}	
+			clicker()
+		}
+	})
 })
 
 
@@ -173,9 +151,11 @@ $("#back-search").on("click", function() {
 
 // The idea, every time the watchlist is loaded, is to take this userWatchlist array and use it to populate the watchlist page by rendering the respective posters and their attached modals (THIS WILL COME IN THE SECOND EVENT LATER)
 
-// $(".add-watchlist").on("click", function(event) {
+$("watchlist-button").on("click", function(event) {
 
-// 	event.preventDefault();
+	event.preventDefault();
+
+	console.log(title, genre);
 
 // // Start by calling whatever is in local storage
 
@@ -198,7 +178,7 @@ $("#back-search").on("click", function() {
 
 // 		userWatchlist = parsedWatchlist;
 
-// 	};
+	});
 
 // // Now, whenever the search results come up on the main page, we want to have the posters dynamically render from the response, along with an "add to watchlist" button which has a dataset attribute - call it data-index, for example. We want to set this to the index position of the movie within the response array. (This data-index = response.results[i] will come in handy when trying to extract the info required to populate the object used to render the watchlist posters and modals)
 
