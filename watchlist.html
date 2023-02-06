@@ -28,6 +28,37 @@
         <br>
         <button type="button" class="btn btn-primary" id="back-search">Back to Search Page</button>
 
+        <div id="watchlist-posters">
+            <div class="row row-cols-1 row-cols-md-4" id="poster-group">
+            </div>
+        </div>
+    </div>
+
+    <div id="watchlist-modal-group">
+        <div id="watchlistMovieDatawModal" class="modal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header border-0 rounded-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="" class="movieDataPoster" alt="poster">
+                        <div id="watchlist-selection">
+                            <div class="title"></div>
+                            <div class="genre"></div>
+                            <div class="director"></div>
+                            <div class="cast"></div>
+                            <div class="plot"></div>
+                            <button type="button" class="btn btn-primary" id="watchlist-remove">Remove from
+                                watchlist</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

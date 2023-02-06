@@ -490,7 +490,6 @@ input:checked+.slider:before {
   width: 300px;
   opacity: 1;
   margin-right: 2px;
-  margin-bottom: 0px;
   border-style: none;
   background-color: white;
   color: black;
@@ -501,4 +500,10 @@ input:checked+.slider:before {
 #back-search:hover {
   background-color: grey;
   color: white;
+}
+
+#watchlist-posters {
+  height: 100vh;
+  margin-left: 12px;
+  margin-right: 12px;
 }
