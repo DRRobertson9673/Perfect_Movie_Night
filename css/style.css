@@ -403,7 +403,7 @@ input:checked+.slider:before {
     background-position: center center;
   }
 
-  #AppleTV {
+  #Apple {
     background: url("../images/btn_AppleTV_small.png") black;
     background-size: 50px 50px;
     background-repeat: no-repeat;

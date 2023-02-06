@@ -9,13 +9,15 @@ var userType = "movie";
 var userGenre = "";
 
 
-// Click Event Listener for the service buttons
+// Click Event Listener for the streaming service buttons
 
 $(document).on("click", ".btn", function (event) {
 
 	event.preventDefault();
 
-	userService = ($(this).attr("id")).toLowerCase();	
+	userService = ($(this).attr("id")).toLowerCase();
+	
+	// NOTE THAT "FOUR" DOESN'T WORK. I SUSPECT IT IS "4", BUT THEN WE CANNOT USE THE ID AS A SELECTOR BECAUSE IDs CANNOT CONTAIN JUST NUMBERS.
 
 });
 
@@ -23,6 +25,7 @@ $(document).on("click", ".btn", function (event) {
 // Click Event Listener to make page scroll up when a service platform button is clicked
 
 $(".platformBtn").click(function () {
+
 	$('html, body').animate({ scrollTop: $("#pleaseSelect").offset().top }, 500);
 });
 
@@ -53,9 +56,11 @@ $('#TVSwitch').change(
 );
 
 
-// code to set the variable when an option is selected from the drop down genre menu
+// Change Event Listener to set the userGenre value when an option is selected from the drop down genre menu
 $("#genreSelect").change(function () {
+
 	userGenre = $(this).children("option:selected").val();
+	
 });
 
 
@@ -95,7 +100,9 @@ $("#go-button").on("click", function () {
 		};
 
 		$.ajax(settings).done(function (response) {
+
 			let parsedResponse = JSON.parse(response);
+
 			for (let i = 0; i < 8; i++) {
 
 				var imdbID = parsedResponse.results[i].imdbID
@@ -103,8 +110,8 @@ $("#go-button").on("click", function () {
 
 				$("#poster-group").append(`
 					<div class="col mb-1 p-1">
-						<div data-value="` + imdbID + `" class="card rounded-0 border-0">
-							<img src="` + getPoster + `" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDatawModal" alt="Movie Poster">
+						<div data-value="${imdbID}" class="card rounded-0 border-0">
+							<img src="${getPoster}" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDatawModal" alt="Movie Poster">
 						</div>
 					</div>`)
 
