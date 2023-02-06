@@ -82,10 +82,11 @@ $("#go-button").on("click", function () {
 	};
 	$.ajax(settings).done(function (response) {
 		let parsedResponse = JSON.parse(response);
+		console.log(parsedResponse)
 		for (let i = 0; i < parsedResponse.results.length; i++) {
 
 			var imdbID = parsedResponse.results[i].imdbID
-			var getPoster = parsedResponse.results[i].posterURLs.original
+			var getPoster = parsedResponse.results[i].posterURLs[342]
 
 			$("#poster-group").append(`
 				<div class="col mb-1 p-1">
@@ -151,7 +152,7 @@ $("#back-search").on("click", function() {
 
 // The idea, every time the watchlist is loaded, is to take this userWatchlist array and use it to populate the watchlist page by rendering the respective posters and their attached modals (THIS WILL COME IN THE SECOND EVENT LATER)
 
-$("watchlist-button").on("click", function(event) {
+$("#watchlist-button").on("click", function(event) {
 
 	event.preventDefault();
 

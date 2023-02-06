@@ -319,7 +319,8 @@ input:checked+.slider:before {
 }
 
 .movieDataPoster {
-  max-width: 50%;
+  width: 50%;
+  height: 33.75%;
 }
 
 .modal-header {
