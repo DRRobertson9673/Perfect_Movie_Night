@@ -137,7 +137,7 @@ function clicker() {
 
 				//TO DO: SORT ARRAY IN ASCENDING ALPHABETICAL ORDER
 
-				console.log(parsedWatchlist);
+				//console.log(parsedWatchlist);
 
 				localStorage.setItem("user-watchlist", JSON.stringify(parsedWatchlist));
 			})
@@ -152,11 +152,11 @@ function clicker() {
 
 var localWatchlist = localStorage.getItem("user-watchlist");
 
-console.log(localWatchlist); // FINE
+//console.log(localWatchlist); // FINE
 
 var parsedUserWatchlist = JSON.parse(localWatchlist);
 
-console.log(parsedUserWatchlist); // FINE
+//console.log(parsedUserWatchlist); // FINE
 
 // Then loop through the array of objects. We only want it to run if there is data in local storage
 
@@ -166,8 +166,8 @@ if(localWatchlist !== null) {
 
 	for (let i = 0; i < parsedUserWatchlist.length; i++) {
 
-		console.log(parsedUserWatchlist[i].imdbID);
-		console.log(parsedUserWatchlist[i].poster);
+		//console.log(parsedUserWatchlist[i].imdbID);
+		//console.log(parsedUserWatchlist[i].poster);
 
 		$("#watchlist-poster-group").append(`
 				<div class="col mb-1 p-1">
@@ -226,6 +226,16 @@ $("#back-search").on("click", function() {
 
 	window.location.href = "index.html";
 });
+
+// To clear the entire watchlist
+
+$("#clear-watchlist").on("click", function() {
+
+	localStorage.clear();
+
+	location.reload();
+
+})
 
 
 // code to clear modal contents when it is hidden to prevent previous content showing briefly on load
