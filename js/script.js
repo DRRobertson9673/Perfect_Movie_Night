@@ -91,7 +91,7 @@ $("#go-button").on("click", function () {
 			$("#poster-group").append(`
 				<div class="col mb-1 p-1">
 					<div data-value="` + imdbID + `" class="card rounded-0 border-0">
-						<img src="` + getPoster + `" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDatawModal" alt="Movie Poster">
+						<img src="` + getPoster + `" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDataModal" alt="Movie Poster">
 					</div>
 				</div>`)
 
@@ -285,3 +285,20 @@ $("#watchlist-button").on("click", function(event) {
 // 	location.reload();
 
 // });
+
+// code to clear modal contents when it is hidden to prevent previous content showing briefly on load
+$(".close").on("click", function(event) {
+	console.log('cleared')
+	var poster = ""
+	var title = ""
+	var genre = ""
+	var director = ""
+	var cast = ""
+	var plot = ""
+	$('.movieDataPoster').attr("src", poster)
+	$('.title').text(title)
+	$('.genre').text(genre)
+	$('.director').text('Director: ' + director)
+	$('.cast').text('Cast: ' + cast)
+	$('.plot').text(plot)
+  })
