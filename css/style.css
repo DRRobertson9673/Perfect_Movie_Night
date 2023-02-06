@@ -479,6 +479,8 @@ input:checked+.slider:before {
   }
 }
 
+/* Watchlist styling additions start here*/
+
 #watchlistIntro {
   position: relative;
   text-align: center;
@@ -522,4 +524,90 @@ input:checked+.slider:before {
   height: 100vh;
   margin-left: 12px;
   margin-right: 12px;
+}
+
+.watchlist-close {
+  color: white;
+  opacity: 1;
+}
+
+.watchlistMovieDataPoster {
+  width: 50%;
+  height: 33.75%;
+}
+
+.modal-header .watchlist-close {
+  padding: .5rem .75rem;
+}
+
+.watchlist-close:hover {
+  color: white;
+  opacity: 1;
+}
+
+#watchlist-posters {
+  height: 100vh;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+#watchlist-selection .watchlist-title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+#watchlist-selection {
+  padding-left: 20px;
+}
+
+#watchlist-selection .watchlist-plot {
+  margin-top: 10px;
+  margin-right: 30px;
+  font-weight: lighter;
+}
+
+#watchlist-selection {
+  display: flex;
+  flex-direction: column;
+}
+
+#watchlist-remove {
+  float: right;
+  height: 30px;
+  width: auto;
+  opacity: 1;
+  margin-top: 60px;
+  border-style: none;
+  background-color: white;
+  color: black;
+  font-size: 13px;
+  line-height: 0px;
+}
+
+#watchlist-remove:hover {
+  background-color: grey;
+  color: white;
+}
+
+#watchlist-title {
+
+  color: white;
+  text-align: center;
+}
+
+#clear-watchlist {
+  height: 30px;
+  width: 300px;
+  opacity: 1;
+  margin-right: 2px;
+  border-style: none;
+  background-color: white;
+  color: black;
+  line-height: 0px;
+  margin-bottom: 5px;
+}
+
+#clear-watchlist:hover {
+  background-color: grey;
+  color: white;
 }
