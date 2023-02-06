@@ -120,6 +120,7 @@ $(".card").click(function () {
 		$('.director').text('Director: ' + director)
 		$('.cast').text('Cast: ' + cast)
 		$('.plot').text(plot)
+		$('.btnModal').attr('id', userService)
 	});
 });
 }
@@ -297,4 +298,5 @@ $(".close").on("click", function(event) {
 	$('.director').text('Director: ' + director)
 	$('.cast').text('Cast: ' + cast)
 	$('.plot').text(plot)
+	$('.btnModal').attr('id', '#modalPlatform')
   })

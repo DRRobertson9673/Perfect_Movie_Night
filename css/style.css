@@ -65,42 +65,42 @@ body {
   justify-content: space-between;
 }
 
-#Netflix {
+#netflix {
   background: url("../images/btn_Netflix.png") black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-#Now {
+#now {
   background: url("../images/btn_Now.png") black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-#Prime {
+#prime {
   background: url("../images/btn_Prime.png") black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-#iPlayer {
+#iplayer {
   background: url("../images/btn_iPlayer.png") black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-#Apple {
+#apple {
   background: url("../images/btn_AppleTV.png") black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-#Disney {
+#disney {
   background: url("../images/btn_Disney.png") black;
   background-size: cover;
   background-repeat: no-repeat;
@@ -114,21 +114,21 @@ body {
   background-position: center center;
 }
 
-#BritBox {
+#britbox {
   background: url("../images/btn_BritBox.png") black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-#Zee5 {
+#zee5 {
   background: url("../images/btn_Zee5.png") black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-#Mubi {
+#mubi {
   background: url("../images/btn_Mubi.png") black;
   background-size: cover;
   background-repeat: no-repeat;
@@ -143,6 +143,20 @@ body {
   margin-left: 2px;
   margin-bottom: 10px;
   border-style: none;
+}
+
+.btnModal {
+  height: 50px;
+  width: 100px;
+  border-style: none;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  cursor: default;
+}
+
+.btnModal:hover {
+  cursor: default;
 }
 
 .btn:hover {
@@ -215,6 +229,7 @@ body {
 
 .card-img-top:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
 #selectionInfo {
@@ -362,7 +377,7 @@ input:checked+.slider:before {
   height: 30px;
   width: 135px;
   opacity: 1;
-  margin-top: 60px;
+  margin-top: 30px;
   border-style: none;
   background-color: white;
   color: black;
@@ -376,42 +391,42 @@ input:checked+.slider:before {
 }
 
 @media (max-width: 992px) {
-  #Netflix {
+  #netflix {
     background: url("../images/btn_Netflix_small.png") black;
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center center;
   }
 
-  #Now {
+  #now {
     background: url("../images/btn_Now_small.png") white;
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center center;
   }
 
-  #Prime {
+  #prime {
     background: url("../images/btn_Prime_small.png") rgb(36, 48, 63);
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center center;
   }
 
-  #iPlayer {
+  #iplayer {
     background: url("../images/btn_iPlayer_small.png") black;
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center center;
   }
 
-  #Apple {
+  #apple {
     background: url("../images/btn_AppleTV_small.png") black;
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center center;
   }
 
-  #Disney {
+  #disney {
     background: url("../images/btn_Disney_small.png") black;
     background-size: cover;
     background-repeat: no-repeat;
@@ -425,21 +440,21 @@ input:checked+.slider:before {
     background-position: center center;
   }
 
-  #BritBox {
+  #britbox {
     background: url("../images/btn_BritBox_small.png") rgb(26, 36, 45);
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center center;
   }
 
-  #Zee5 {
+  #zee5 {
     background: url("../images/btn_Zee5_small.png") white;
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center center;
   }
 
-  #Mubi {
+  #mubi {
     background: url("../images/btn_Mubi_small.png") black;
     background-size: 50px 50px;
     background-repeat: no-repeat;
