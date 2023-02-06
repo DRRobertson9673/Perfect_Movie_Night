@@ -103,7 +103,7 @@ $("#go-button").on("click", function () {
 
 			let parsedResponse = JSON.parse(response);
 
-			for (let i = 0; i < 8; i++) {
+			for (let i = 0; i < parsedResponse.length; i++) {
 
 				var imdbID = parsedResponse.results[i].imdbID
 				var getPoster = parsedResponse.results[i].posterURLs.original
@@ -147,3 +147,7 @@ $(".card").click(function () {
 	});
 });
 }
+
+/* Add to-, Remove from-, and Clear Watchlist Functionality
+------------------------------------------------------------*/
+

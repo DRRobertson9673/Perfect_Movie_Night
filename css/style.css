@@ -462,3 +462,43 @@ input:checked+.slider:before {
     color: white;
   }
 }
+
+#watchlistIntro {
+  position: relative;
+  text-align: center;
+  color: white;
+  height: calc(100vh - 300px);
+  background-color: black;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+#watchlist-jumbo {
+  opacity: .3;
+  height: calc(100vh - 300px);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+  width: 100%;
+}
+
+#back-search {
+  height: 30px;
+  width: 300px;
+  opacity: 1;
+  margin-right: 2px;
+  margin-bottom: 0px;
+  border-style: none;
+  background-color: white;
+  color: black;
+  line-height: 0px;
+  margin-bottom: 5px;
+}
+
+#back-search:hover {
+  background-color: grey;
+  color: white;
+}
