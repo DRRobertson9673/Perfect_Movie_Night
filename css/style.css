@@ -107,7 +107,7 @@ body {
   background-position: center center;
 }
 
-#Four {
+#all4 {
   background: url("../images/btn_4.png") black;
   background-size: cover;
   background-repeat: no-repeat;
@@ -418,7 +418,7 @@ input:checked+.slider:before {
     background-position: center center;
   }
 
-  #Four {
+  #all4 {
     background: url("../images/btn_4_small.png") rgb(30, 30, 30);
     background-size: 50px 50px;
     background-repeat: no-repeat;

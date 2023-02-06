@@ -10,47 +10,29 @@ var userGenre = "";
 
 
 // Click Event Listener for the streaming service buttons
-
 $(document).on("click", ".platformBtn", function (event) {
-
 	event.preventDefault();
-
 	userService = ($(this).attr("id")).toLowerCase();
-	
-	// NOTE THAT "FOUR" DOESN'T WORK. I SUSPECT IT IS "4", BUT THEN WE CANNOT USE THE ID AS A SELECTOR BECAUSE IDs CANNOT CONTAIN JUST NUMBERS.
-
 });
 
 
 // Click Event Listener to make page scroll up when a service platform button is clicked
-
 $(".platformBtn").click(function () {
-
 	$('html, body').animate({ scrollTop: $("#pleaseSelect").offset().top }, 500);
 });
 
 
 // Change Event Listener to set userType value with user preference when the clicker is toggled, and to switch colour of text based on user choice of series or movie
-
 $('#TVSwitch').change(
 	function () {
-
 		if ($(this).is(':checked')) {
-
 			userType = "series";
-
 			$("#seriesLabel").addClass("mediaSelectorSelected").removeClass("mediaSelector");
-
 			$("#moviesLabel").addClass("mediaSelector").removeClass("mediaSelectorSelected");
-
 		} else {
-
 			userType = "movie";
-
 			$("#seriesLabel").addClass("mediaSelector").removeClass4("mediaSelectorSelected");
-
 			$("#moviesLabel").addClass("mediaSelectorSelected").removeClass("mediaSelector");
-
 		}
 	}
 );
@@ -58,18 +40,12 @@ $('#TVSwitch').change(
 
 // Change Event Listener to set the userGenre value when an option is selected from the drop down genre menu
 $("#genreSelect").change(function () {
-
 	userGenre = $(this).children("option:selected").val();
-	
 });
 
-
 // Event listener for the "Search" button after user chooses preferences
-
 $("#go-button").on("click", function () {
-
 	$("#poster-group").empty();
-
 	const settings = {
 		"async": true,
 		"crossDomain": true,
@@ -82,19 +58,15 @@ $("#go-button").on("click", function () {
 	};
 	$.ajax(settings).done(function (response) {
 		let parsedResponse = JSON.parse(response);
-		console.log(parsedResponse)
 		for (let i = 0; i < parsedResponse.results.length; i++) {
-
 			var imdbID = parsedResponse.results[i].imdbID
 			var getPoster = parsedResponse.results[i].posterURLs[342]
-
 			$("#poster-group").append(`
 				<div class="col mb-1 p-1">
 					<div data-value="` + imdbID + `" class="card rounded-0 border-0">
 						<img src="` + getPoster + `" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDataModal" alt="Movie Poster">
 					</div>
 				</div>`)
-
 			clicker()
 		}
 	})
@@ -102,7 +74,6 @@ $("#go-button").on("click", function () {
 
 
 // Function to make an api call to OMDB using imdbID to get movie/show details
-
 function clicker() {
 $(".card").click(function () {
 	var movie = this.dataset.value;
@@ -288,7 +259,6 @@ $("#watchlist-button").on("click", function(event) {
 
 // code to clear modal contents when it is hidden to prevent previous content showing briefly on load
 $(".close").on("click", function(event) {
-	console.log('cleared')
 	var poster = ""
 	var title = ""
 	var genre = ""
