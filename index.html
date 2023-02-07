@@ -95,12 +95,22 @@
                 </select>
             </div>
             <!--This div below is for user feedback if they forget to choose a streaming platform-->
-            <div id="feedback" class="feedback hide"></div>
-            <button type="button" class="btn btn-primary" id="go-button">Search</button>
+            <div id="feedbackAndGo">
+                <div id="feedback" class="feedback hide">Please choose a streaming platform</div>
+                <button type="button" class="btn btn-primary" id="go-button">Search</button>
+            </div>
             
         </div>
 
         <div id="posters">
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border d-none text-light" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div id="loading" class="d-none">
+                <div>loading, sit back and relax</div>
+            </div>
             <div class="row row-cols-1 row-cols-md-4" id="poster-group">
             </div>
         </div>

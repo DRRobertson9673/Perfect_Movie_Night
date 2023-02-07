@@ -318,11 +318,18 @@ input:checked+.slider:before {
 .hide {
   display: none;
 }
+#feedbackAndGo {
+  display: flex;
+  flex-direction: row;
+}
 
 .feedback {
   color: red;
   font-size: 80%;
   margin-top: 10px;
+  margin-right: 10px;
+  position: relative;
+  bottom: 5px;
 
 }
 
@@ -540,11 +547,6 @@ input:checked+.slider:before {
   padding: .5rem .75rem;
 }
 
-.watchlist-close:hover {
-  color: white;
-  opacity: 1;
-}
-
 #watchlist-posters {
   height: 100vh;
   margin-left: 12px;
@@ -638,4 +640,21 @@ input:checked+.slider:before {
 
 a:hover {
   text-decoration: none;
+}
+
+.backgroundGrey {
+  background-color: grey !important;
+  color: white !important;
+}
+
+#SearchClearButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#loading {
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-top: 10px;
 }

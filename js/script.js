@@ -1,5 +1,6 @@
 
 var localWatchlist = JSON.parse(localStorage.getItem('localWatchlist')) || [];
+console.log(localWatchlist)
 var newMovieObject;
 var countryList = {
 	netflix: ["ar", "at", "au", "be", "br", "ca", "ch", "cl", "co", "cz", "de", "dk", "ec", "ee", "es", "fi", "fr", "gb", "gr", "hu", "id", "ie", "in", "it", "jp", "kr", "lt", "lv", "mx", "my", "nl", "no", "nz", "pe", "ph", "pl", "pt", "ro", "ru", "se", "sg", "th", "tr", "us", "ve", "za"],
@@ -21,6 +22,7 @@ $(document).on("click", ".platformBtn", function (event) {
 // Click Event Listener to make page scroll up when a service platform button is clicked
 $(".platformBtn").click(function () {
 	$('html, body').animate({ scrollTop: $("#pleaseSelect").offset().top }, 500);
+	$('#feedback').addClass('hide');
 });
 
 
@@ -47,6 +49,11 @@ $("#genreSelect").change(function () {
 
 // Event listener for the "Search" button after user chooses preferences
 $("#go-button").on("click", function () {
+	if (userService == "") {
+		$('#feedback').removeClass('hide');
+	} else {
+	$('.spinner-border').removeClass('d-none');
+	$('#loading').removeClass('d-none');
     $("#poster-group").empty();
     const settings = {
         "async": true,
@@ -60,6 +67,8 @@ $("#go-button").on("click", function () {
     };
     $.ajax(settings).done(function (response) {
         let parsedResponse = JSON.parse(response);
+		$('.spinner-border').addClass('d-none');
+		$('#loading').addClass('d-none');
         for (let i = 0; i < parsedResponse.results.length; i++) {
             var imdbID = parsedResponse.results[i].imdbID
             var getPoster = parsedResponse.results[i].posterURLs[342]
@@ -72,6 +81,7 @@ $("#go-button").on("click", function () {
             clicker()
         }
     })
+	}
 })
 
 
@@ -98,6 +108,15 @@ function clicker() {
 			$('.director').text('Director: ' + director)
 			$('.cast').text('Cast: ' + cast)
 			$('.plot').text(plot)
+			$('.btnModal').attr('id', userService)
+
+			for (let i = 0; i < localWatchlist.length; i++) {
+				if (localWatchlist[i].imdbID == movie) {
+					$('#watchlist-button').attr('disabled', true).text("On watchlist").addClass('backgroundGrey')
+				}
+			}
+
+			
 
 			// Declare a variable and define an object. This  will store requisite data which allows us obtain movie/tv show information from OMDB as we need to, without having to make multiple calls to Rapid API
           
@@ -124,11 +143,7 @@ function clicker() {
 			// 	console.log('Clicked', localWatchlist);
 				
 			// });
-			
 		});	
-		
-		
-		
 	});
 };
 
@@ -137,7 +152,7 @@ $("#watchlist-button").on("click", function(event) {
                 
 	//
 	event.preventDefault();	  
-	$('#watchlist-button').attr('disabled', true).text("On watchlist")
+	$('#watchlist-button').attr('disabled', true).text("On watchlist").addClass('backgroundGrey')
 
 	localWatchlist.push(newMovieObject);			
 	localStorage.setItem("localWatchlist", JSON.stringify(localWatchlist));
@@ -246,7 +261,7 @@ $(".close").on("click", function(event) {
 	$('.director').text('Director: ' + director)
 	$('.cast').text('Cast: ' + cast)
 	$('.plot').text(plot)
-	$('#watchlist-button').attr('disabled', false).text("Add to watchlist")
+	$('#watchlist-button').attr('disabled', false).text("Add to watchlist").removeClass('backgroundGrey')
 });
 
 $(".watchlist-close").on("click", function(event) {
