@@ -1,4 +1,6 @@
 
+var localWatchlist = JSON.parse(localStorage.getItem('localWatchlist')) || [];
+
 var countryList = {
 	netflix: ["ar", "at", "au", "be", "br", "ca", "ch", "cl", "co", "cz", "de", "dk", "ec", "ee", "es", "fi", "fr", "gb", "gr", "hu", "id", "ie", "in", "it", "jp", "kr", "lt", "lv", "mx", "my", "nl", "no", "nz", "pe", "ph", "pl", "pt", "ro", "ru", "se", "sg", "th", "tr", "us", "ve", "za"],
 };
@@ -107,116 +109,94 @@ function clicker() {
 			$('.plot').text(plot)
 
 			// Declare a variable and define an object. This  will store requisite data which allows us obtain movie/tv show information from OMDB as we need to, without having to make multiple calls to Rapid API
+          
+			
+
+/*Adding movies to the Watchlist
+---------------------------*/
 
 			var newMovieObject = {
-
 				imdbID: movie,
 				poster: poster
 			}
-
-
+			 
+			
 			$("#watchlist-button").on("click", function(event) {
-
-				event.preventDefault();	
-
-				var localWatchlist = localStorage.getItem("user-watchlist");
-
-				var parsedWatchlist;
-
-				if(!localWatchlist) {
-
-					parsedWatchlist = [];
-
-				} else {
-
-					parsedWatchlist = JSON.parse(localWatchlist);
-
-				}
-
-				parsedWatchlist.push(newMovieObject);
-
-				//TO DO: SORT ARRAY IN ASCENDING ALPHABETICAL ORDER
-
-				//console.log(parsedWatchlist);
-
-				localStorage.setItem("user-watchlist", JSON.stringify(parsedWatchlist));
+                
+				//$('#modal-group').empty();
+				event.preventDefault();	  
+				      
+				localWatchlist.push(newMovieObject);			
+				localStorage.setItem("localWatchlist", JSON.stringify(localWatchlist));
+                $('#watchlist-button').removeClass('visible').addClass('invisible');
+                
+				//console.log('local watchlist', localWatchlist);
+				
 			})
+			
 		});		
+		
 	});
-}
-
-/*Populating the Watchlist
----------------------------*/
-
-// First get the watchlist array from local storage, then convert to array/object form
-
-var localWatchlist = localStorage.getItem("user-watchlist");
-
-//console.log(localWatchlist); // FINE
-
-var parsedUserWatchlist = JSON.parse(localWatchlist);
-
-//console.log(parsedUserWatchlist); // FINE
-
-// Then loop through the array of objects. We only want it to run if there is data in local storage
-
-if(localWatchlist !== null) {
-
-	$("#watchlist-poster-group").empty(); 
-
-	for (let i = 0; i < parsedUserWatchlist.length; i++) {
-
-		//console.log(parsedUserWatchlist[i].imdbID);
-		//console.log(parsedUserWatchlist[i].poster);
-
-		$("#watchlist-poster-group").append(`
-				<div class="col mb-1 p-1">
-					<div data-value="${parsedUserWatchlist[i].imdbID}" data-index="${i}" class="watchlist-card rounded-0 border-0">
-						<img src="${parsedUserWatchlist[i].poster}" class="card-img-top rounded-0" data-toggle="modal" data-target="#watchlistMovieDataModal" alt="Movie Poster">
-					</div>
-				</div>`
-		);		
-	}
-
-	// Render the Movie/TV Show Posters on the Watchlist
-
-	$(".watchlist-card").click(function () {
-		var movie = this.dataset.value;
-		var index = this.dataset.index; // We assign a data-index attribute which matches the index of its corresponding imdb ID in the watchlist array. This will make it easier to target it later for removal.
-
-		var queryURL = "https://www.omdbapi.com/?i=" + movie + "&apikey=trilogy";
-
-		$.ajax({
-			url: queryURL,
-			method: "GET"
-		}).then(function (response) {
-			var poster = response.Poster
-			var title = response.Title
-			var genre = response.Genre
-			var director = response.Director
-			var cast = response.Actors
-			var plot = response.Plot
-
-			$('.watchlistMovieDataPoster').attr("src", poster)
-			$('.watchlist-title').text(title)
-			$('.watchlist-genre').text(genre)
-			$('.watchlist-director').text('Director: ' + director)
-			$('.watchlist-cast').text('Cast: ' + cast)
-			$('.watchlist-plot').text(plot)	
+};
+/* Populating the watchlist
+-----------------------------*/
+		$("#watchlist-poster-group").empty(); 
+		
+		for (let i = 0; i < localWatchlist.length; i++) {
+			$("#watchlist-poster-group").append(`
+					<div class="col mb-1 p-1">
+						<div data-value="${localWatchlist[i].imdbID}" data-index="${i}" class="watchlist-card rounded-0 border-0">
+							<img src="${localWatchlist[i].poster}" class="card-img-top rounded-0" data-toggle="modal" data-target="#watchlistMovieDataModal" alt="Movie Poster">
+						</div>
+					</div>`
+					
+			);		
+		}
+	
+	
+		// Render the Movie/TV Show Posters on the Watchlist
+	
+		$(".watchlist-card").click(function () {
+			var movie = this.dataset.value;
+			var index = this.dataset.index; // We assign a data-index attribute which matches the index of its corresponding imdb ID in the watchlist array. This will make it easier to target it later for removal.
+	
+			var queryURL = "https://www.omdbapi.com/?i=" + movie + "&apikey=trilogy";
+	
+			$.ajax({
+				url: queryURL,
+				method: "GET"
+			}).then(function (response) {
+				var poster = response.Poster
+				var title = response.Title
+				var genre = response.Genre
+				var director = response.Director
+				var cast = response.Actors
+				var plot = response.Plot
+	
+				$('.watchlistMovieDataPoster').attr("src", poster)
+				$('.watchlist-title').text(title)
+				$('.watchlist-genre').text(genre)
+				$('.watchlist-director').text('Director: ' + director)
+				$('.watchlist-cast').text('Cast: ' + cast)
+				$('.watchlist-plot').text(plot)	
+			});
+	
+			// To Remove a Movie/Show from Watchlist
+	
+			$("#watchlist-remove").on("click", function() {
+	
+				localWatchlist.splice(index, 1);
+	
+				localStorage.setItem("localWatchlist", JSON.stringify(localWatchlist));
+	
+				location.reload();
+			})
 		});
 
-		// To Remove a Movie/Show from Watchlist
+	
 
-		$("#watchlist-remove").on("click", function() {
+	
 
-			parsedUserWatchlist.splice(index, 1);
-
-			localStorage.setItem("user-watchlist", JSON.stringify(parsedUserWatchlist));
-
-			location.reload();
-		})
-	});
-}
 
 
 /* Add to-, Remove from-, and Clear Watchlist Functionality
