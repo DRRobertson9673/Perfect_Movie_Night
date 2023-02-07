@@ -1,6 +1,6 @@
 
 var localWatchlist = JSON.parse(localStorage.getItem('localWatchlist')) || [];
-
+var newMovieObject;
 var countryList = {
 	netflix: ["ar", "at", "au", "be", "br", "ca", "ch", "cl", "co", "cz", "de", "dk", "ec", "ee", "es", "fi", "fr", "gb", "gr", "hu", "id", "ie", "in", "it", "jp", "kr", "lt", "lv", "mx", "my", "nl", "no", "nz", "pe", "ph", "pl", "pt", "ro", "ru", "se", "sg", "th", "tr", "us", "ve", "za"],
 };
@@ -49,40 +49,42 @@ $("#genreSelect").change(function () {
 $("#go-button").on("click", function () {
 
 	$("#poster-group").empty();
-	
-	const settings = {
-		"async": true,
-		"crossDomain": true,
-		"url": "https://streaming-availability.p.rapidapi.com/search/basic?country=gb&service=" + userService + "&type=" + userType + userGenre + "&output_language=en&language=en",
-		"method": "GET",
-		"headers": {
-			"X-RapidAPI-Key": "75d2fd589bmsh1543238bae58bf5p1a98fcjsne79d00e604bd",
-			"X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
-		}
-	};
+	//$('#modal-group').empty();
+	// const settings = {
+	// 	"async": true,
+	// 	"crossDomain": true,
+	// 	"url": "https://streaming-availability.p.rapidapi.com/search/basic?country=gb&service=" + userService + "&type=" + userType + userGenre + "&output_language=en&language=en",
+	// 	"method": "GET",
+	// 	"headers": {
+	// 		"X-RapidAPI-Key": "85cea767d7msh61dfa0edc659024p1cafe1jsnc76b9a205a8",
+	// 		"X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
+	// 	}
+	// };
 	
 
-	$.ajax(settings).done(function (response) {
-		let parsedResponse = JSON.parse(response);
-		var imdbID;
-		var getPoster;
+	// $.ajax(settings).done(function (response) {
+	// 	let parsedResponse = JSON.parse(response);
+	 	var imdbID;
+	 	var getPoster;
 
-		for (let i = 0; i < parsedResponse.results.length; i++) {
-			imdbID = parsedResponse.results[i].imdbID
-			getPoster = parsedResponse.results[i].posterURLs[342]
+		for (let i = 0; i < /*parsedResponse.results.length */8; i++) {
+			imdbID = "tt6119504" /*parsedResponse.results[i].imdbID */
+			getPoster = "https://image.tmdb.org/t/p/w342/9TbjIF1p5a3EJXUFzX63Coa2JRM.jpg"/*parsedResponse.results[i].posterURLs[342] */
 			$("#poster-group").append(`
 				<div class="col mb-1 p-1">
 					<div data-value="` + imdbID + `" class="card rounded-0 border-0">
 						<img src="` + getPoster + `" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDataModal" alt="Movie Poster">
 					</div>
 				</div>`)
+
+			
 			
 		}
 		clicker();
 
 
 	})
-})
+//})
 
 
 // Function to make an api call to OMDB using imdbID to get movie/show details
@@ -115,29 +117,50 @@ function clicker() {
 /*Adding movies to the Watchlist
 ---------------------------*/
 
-			var newMovieObject = {
+			    newMovieObject = {
 				imdbID: movie,
 				poster: poster
 			}
 			 
 			
-			$("#watchlist-button").on("click", function(event) {
+			// $("#watchlist-button").on("click", function(event) {
                 
-				//$('#modal-group').empty();
-				event.preventDefault();	  
+			// 	//
+			// 	event.preventDefault();	  
 				      
-				localWatchlist.push(newMovieObject);			
-				localStorage.setItem("localWatchlist", JSON.stringify(localWatchlist));
-                $('#watchlist-button').removeClass('visible').addClass('invisible');
+			// 	localWatchlist.push(newMovieObject);			
+			// 	localStorage.setItem("localWatchlist", JSON.stringify(localWatchlist));
+            //     //$('#watchlist-button').removeClass('visible').addClass('invisible');
                 
-				//console.log('local watchlist', localWatchlist);
+			// 	console.log('Clicked', localWatchlist);
 				
-			})
+			// });
 			
-		});		
+		});	
+		
+		
 		
 	});
 };
+
+
+$("#watchlist-button").on("click", function(event) {
+                
+	//
+	event.preventDefault();	  
+		  
+	localWatchlist.push(newMovieObject);			
+	localStorage.setItem("localWatchlist", JSON.stringify(localWatchlist));
+	//$('#watchlist-button').removeClass('visible').addClass('invisible');
+	
+	console.log('Clicked', localWatchlist);
+	
+});
+
+
+
+
+
 /* Populating the watchlist
 -----------------------------*/
 		$("#watchlist-poster-group").empty(); 
