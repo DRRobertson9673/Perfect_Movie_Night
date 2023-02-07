@@ -15,9 +15,9 @@ body {
 
 #pleaseSelect {
   font-size: 15px;
-  padding-top: 10px;
+  padding-top: 9px;
   padding-left: 2px;
-  padding-bottom: 4px;
+  padding-bottom: 8px;
   color: white;
 }
 
@@ -610,4 +610,32 @@ input:checked+.slider:before {
 #clear-watchlist:hover {
   background-color: grey;
   color: white;
+}
+
+
+#goWatchlist {
+  font-size: 15px;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  color: white;
+}
+
+#goWatchlist:hover {
+  opacity: .5;
+}
+
+#watchlistIcon {
+  position: relative;
+  bottom: 1px;
+  height:17px;
+  margin-left: 8px;
+}
+
+#navigationText {
+  display: flex;
+  justify-content: space-between;
+}
+
+a:hover {
+  text-decoration: none;
 }

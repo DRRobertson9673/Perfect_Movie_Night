@@ -137,7 +137,8 @@ $("#watchlist-button").on("click", function(event) {
                 
 	//
 	event.preventDefault();	  
-		  
+	$('#watchlist-button').attr('disabled', true).text("On watchlist")
+
 	localWatchlist.push(newMovieObject);			
 	localStorage.setItem("localWatchlist", JSON.stringify(localWatchlist));
 	//$('#watchlist-button').removeClass('visible').addClass('invisible');
@@ -245,6 +246,7 @@ $(".close").on("click", function(event) {
 	$('.director').text('Director: ' + director)
 	$('.cast').text('Cast: ' + cast)
 	$('.plot').text(plot)
+	$('#watchlist-button').attr('disabled', false).text("Add to watchlist")
 });
 
 $(".watchlist-close").on("click", function(event) {
