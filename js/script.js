@@ -47,50 +47,39 @@ $("#genreSelect").change(function () {
 
 // Event listener for the "Search" button after user chooses preferences
 $("#go-button").on("click", function () {
-
-	$("#poster-group").empty();
-	//$('#modal-group').empty();
-	// const settings = {
-	// 	"async": true,
-	// 	"crossDomain": true,
-	// 	"url": "https://streaming-availability.p.rapidapi.com/search/basic?country=gb&service=" + userService + "&type=" + userType + userGenre + "&output_language=en&language=en",
-	// 	"method": "GET",
-	// 	"headers": {
-	// 		"X-RapidAPI-Key": "85cea767d7msh61dfa0edc659024p1cafe1jsnc76b9a205a8",
-	// 		"X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
-	// 	}
-	// };
-	
-
-	// $.ajax(settings).done(function (response) {
-	// 	let parsedResponse = JSON.parse(response);
-	 	var imdbID;
-	 	var getPoster;
-
-		for (let i = 0; i < /*parsedResponse.results.length */8; i++) {
-			imdbID = "tt6119504" /*parsedResponse.results[i].imdbID */
-			getPoster = "https://image.tmdb.org/t/p/w342/9TbjIF1p5a3EJXUFzX63Coa2JRM.jpg"/*parsedResponse.results[i].posterURLs[342] */
-			$("#poster-group").append(`
-				<div class="col mb-1 p-1">
-					<div data-value="` + imdbID + `" class="card rounded-0 border-0">
-						<img src="` + getPoster + `" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDataModal" alt="Movie Poster">
-					</div>
-				</div>`)
-
-			
-			
-		}
-		clicker();
-
-
-	})
-//})
+    $("#poster-group").empty();
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://streaming-availability.p.rapidapi.com/search/basic?country=gb&service=" + userService + "&type=" + userType + userGenre + "&output_language=en&language=en",
+        "method": "GET",
+        "headers": {
+            "X-RapidAPI-Key": "9fe4a5c869msh1171fa58d0e5baep13ca79jsn02b8f92bc15d",
+            "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com"
+        }
+    };
+    $.ajax(settings).done(function (response) {
+        let parsedResponse = JSON.parse(response);
+        for (let i = 0; i < parsedResponse.results.length; i++) {
+            var imdbID = parsedResponse.results[i].imdbID
+            var getPoster = parsedResponse.results[i].posterURLs[342]
+            $("#poster-group").append(`
+                <div class="col mb-1 p-1">
+                    <div data-value="` + imdbID + `" class="card rounded-0 border-0">
+                        <img src="` + getPoster + `" class="card-img-top rounded-0" data-toggle="modal" data-target="#movieDataModal" alt="Movie Poster">
+                    </div>
+                </div>`)
+            clicker()
+        }
+    })
+})
 
 
 // Function to make an api call to OMDB using imdbID to get movie/show details
 function clicker() {
 
 	$(".card").click(function () {
+		console.log('clicked')
 		var movie = this.dataset.value;
 		var queryURL = "https://www.omdbapi.com/?i=" + movie + "&apikey=trilogy";
 		$.ajax({
@@ -235,7 +224,7 @@ $("#back-search").on("click", function() {
 $("#clear-watchlist").on("click", function() {
 
 	localStorage.clear();
-
+    console.log(localStorage);
 	location.reload();
 
 })
