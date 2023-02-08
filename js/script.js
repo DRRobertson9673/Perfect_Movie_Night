@@ -1,5 +1,4 @@
 var localWatchlist = JSON.parse(localStorage.getItem('localWatchlist')) || [];
-console.log(localWatchlist)
 var newMovieObject;
 var countryList = {
 	netflix: ["ar", "at", "au", "be", "br", "ca", "ch", "cl", "co", "cz", "de", "dk", "ec", "ee", "es", "fi", "fr", "gb", "gr", "hu", "id", "ie", "in", "it", "jp", "kr", "lt", "lv", "mx", "my", "nl", "no", "nz", "pe", "ph", "pl", "pt", "ro", "ru", "se", "sg", "th", "tr", "us", "ve", "za"],
@@ -14,6 +13,7 @@ var userGenre = "";
 $(document).on("click", ".platformBtn", function (event) {
 	event.preventDefault();
 	userService = ($(this).attr("id")).toLowerCase();
+	$('#poster-group').empty();
 });
 
 // Click Event Listener to make page scroll up when a service platform button is clicked
@@ -82,7 +82,6 @@ $("#go-button").on("click", function () {
 // Function to make an api call to OMDB using imdbID to get movie/show details
 function clicker() {
 	$(".card").click(function () {
-		console.log('clicked')
 		var movie = this.dataset.value;
 		var queryURL = "https://www.omdbapi.com/?i=" + movie + "&apikey=trilogy";
 		$.ajax({
@@ -120,13 +119,11 @@ function clicker() {
 	});
 };
 
-
 $("#watchlist-button").on("click", function (event) {
 	event.preventDefault();
 	$('#watchlist-button').attr('disabled', true).text("On watchlist").addClass('backgroundGrey')
 	localWatchlist.push(newMovieObject);
 	localStorage.setItem("localWatchlist", JSON.stringify(localWatchlist));
-	console.log('Clicked', localWatchlist);
 });
 
 /* Populating the watchlist
@@ -184,7 +181,6 @@ $("#back-search").on("click", function () {
 // To clear the entire watchlist
 $("#clear-watchlist").on("click", function () {
 	localStorage.removeItem("localWatchlist");
-	console.log(localStorage);
 	location.reload();
 })
 
