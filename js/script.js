@@ -126,8 +126,7 @@ $("#watchlist-button").on("click", function (event) {
 	localStorage.setItem("localWatchlist", JSON.stringify(localWatchlist));
 });
 
-/* Populating the watchlist
------------------------------*/
+// Populating the watchlist
 $("#watchlist-poster-group").empty();
 for (let i = 0; i < localWatchlist.length; i++) {
 	$("#watchlist-poster-group").append(`
@@ -140,7 +139,6 @@ for (let i = 0; i < localWatchlist.length; i++) {
 }
 
 // Render the Movie/TV Show Posters on the Watchlist
-
 $(".watchlist-card").click(function () {
 	var movie = this.dataset.value;
 	var index = this.dataset.index; // We assign a data-index attribute which matches the index of its corresponding imdb ID in the watchlist array. This will make it easier to target it later for removal.
@@ -199,21 +197,6 @@ $(".close").on("click", function (event) {
 	$('.cast').text('Cast: ' + cast)
 	$('.plot').text(plot)
 	$('#watchlist-button').attr('disabled', false).text("Add to watchlist").removeClass('backgroundGrey')
-});
-
-$(".watchlist-close").on("click", function (event) {
-	var poster = "";
-	var title = "";
-	var genre = "";
-	var director = "";
-	var cast = "";
-	var plot = "";
-	$('.watchlistMovieDataPoster').attr("src", poster);
-	$('.watchlist-title').text(title);
-	$('.watchlist-genre').text(genre);
-	$('.watchlist-director').text('Director: ' + director);
-	$('.watchlist-cast').text('Cast: ' + cast);
-	$('.watchlist-plot').text(plot);
 });
 
 // keeps platform selection button at full opacity until a different platform is chosen

@@ -17,6 +17,7 @@
 
 <body>
 
+    <!--this is the main background when you load into the page-->
     <div id="introVideo" class="jumbotron jumbotron-fluid">
         <video id="video-background" preload muted autoplay loop>
             <source src="images/mixkit-friends-camping-watching-a-film-on-a-projector-23350-medium.mp4"
@@ -25,6 +26,7 @@
         <div class="watchWhat">What will you<br>watch tonight?</div>
     </div>
 
+    <!--this is the text area above the platform buttons that includes a link to the watchlist page-->
     <div class="container">
         <div id="navigationText">
             <div id="pleaseSelect">Select your streaming platform</div>
@@ -33,6 +35,7 @@
             </a>
         </div>
 
+        <!--these are the platform selection buttons-->
         <div id="buttons">
             <button id="netflix" type="button" class="btn btn-primary platformBtn" data-bs-toggle="button"
                 autocomplete="off"></button>
@@ -56,6 +59,7 @@
                 autocomplete="off"></button>
         </div>
 
+        <!--This is the switch for choosing media type and drop down menu for genre-->
         <div id="menuBar">
             <div id="searchOptions">
                 <div id="moviesLabel" class="mediaSelectorSelected">
@@ -99,19 +103,17 @@
                 <div id="feedback" class="feedback hide">Please choose a streaming platform</div>
                 <button type="button" class="btn btn-primary" id="go-button">Search</button>
             </div>
-            
         </div>
 
+        <!--this is the code for the area where the media cards will be populated and includes a laoding spinner-->
         <div id="posters">
             <div class="d-flex justify-content-center">
-                <div class="spinner-border d-none text-light" style="width: 3rem; height: 3rem;" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
+                <div class="spinner-border d-none text-light" style="width: 3rem; height: 3rem;" role="status"></div>
             </div>
             <div id="loading" class="d-none">
                 <div>loading, sit back and relax</div>
             </div>
-            <div class="row row-cols-1 row-cols-md-4" id="poster-group">
+            <div class="row row-cols-1 row-cols-md-4" id="poster-group">  <!-- this is where the cards end up-->
             </div>
         </div>
 
@@ -119,6 +121,7 @@
 
     </div>
 
+    <!--this is the code for the modal that pops up when you click on a card-->
     <div id="modal-group">
         <div id="movieDataModal" class="modal" data-keyboard="false" data-backdrop="static" tabindex="-1">
             <div class="modal-dialog modal-lg">
@@ -137,7 +140,6 @@
                             <div class="cast"></div>
                             <div class="plot"></div>
                             <button type="button" class="btn btn-primary visible " id="watchlist-button">Add to watchlist</button>
-        
                             <button id="modalPlatform" type="button" class="btnModal"></button>
                         </div>
 
@@ -154,7 +156,6 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
     <script src="./js/config.js"></script>
     <script src="./js/script.js"></script>
 
