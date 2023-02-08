@@ -219,3 +219,9 @@ $(".watchlist-close").on("click", function (event) {
 	$('.watchlist-cast').text('Cast: ' + cast);
 	$('.watchlist-plot').text(plot);
 });
+
+// keeps platform selection button at full opacity until a different platform is chosen
+$(".platformBtn").focusin(function () {
+	$(".platformBtn").removeClass("platformBtnFocus");
+	$(this).addClass("platformBtnFocus");
+});

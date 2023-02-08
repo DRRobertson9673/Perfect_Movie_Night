@@ -138,7 +138,6 @@ body {
 .btn {
   height: 50px;
   width: 150px;
-  opacity: .3;
   margin-right: 2px;
   margin-left: 2px;
   margin-bottom: 10px;
@@ -657,4 +656,12 @@ a:hover {
   justify-content: center;
   color: white;
   margin-top: 10px;
+}
+
+.platformBtn {
+  opacity: 0.3;
+}
+
+.platformBtnFocus {
+  opacity: 1;
 }
