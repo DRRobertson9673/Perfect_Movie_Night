@@ -152,7 +152,7 @@ body {
 }
 
 #britbox {
-  background: url("../images/btn_BritBox.png") black;
+  background: url("../images/btn_Britbox.png") black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -488,7 +488,7 @@ a:hover {
   }
 
   #britbox {
-    background: url("../images/btn_BritBox_small.png") rgb(26, 36, 45);
+    background: url("../images/btn_Britbox_small.png") rgb(26, 36, 45);
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center center;
