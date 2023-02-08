@@ -397,6 +397,10 @@ input:checked+.slider:before {
 }
 
 @media (max-width: 992px) {
+  .btnModal {
+    width: 50px !important;
+  }
+
   #netflix {
     background: url("../images/btn_Netflix_small.png") black;
     background-size: 50px 50px;
