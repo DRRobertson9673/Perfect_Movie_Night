@@ -31,7 +31,7 @@ $('#TVSwitch').change(
 			$("#moviesLabel").addClass("mediaSelector").removeClass("mediaSelectorSelected");
 		} else {
 			userType = "movie";
-			$("#seriesLabel").addClass("mediaSelector").removeClass4("mediaSelectorSelected");
+			$("#seriesLabel").addClass("mediaSelector").removeClass("mediaSelectorSelected");
 			$("#moviesLabel").addClass("mediaSelectorSelected").removeClass("mediaSelector");
 		}
 	}
