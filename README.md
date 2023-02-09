@@ -1,7 +1,12 @@
 # Perfect_Movie_Night
 
 ## Description
-The aim of this project was to build an application that...
+As a user, I want to be able to:
+Choose a streaming platform, type and genre, so that I can quickly get recommendations for what movies/tv shows to watch
+Click on a movie/show poster, so that I can get more information about that movie/show
+Add movies and shows to a watchlist, so that I can save the things I would like to watch later
+Access movies/shows I previously saved even after refreshing the watchlist page
+Remove movies/shows from my watchlist, or clear all at once
 
 ## Installation
 
