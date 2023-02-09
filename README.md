@@ -1,12 +1,17 @@
 # Perfect_Movie_Night
 
 ## Description
-As a user, I want to be able to:
-Choose a streaming platform, type and genre, so that I can quickly get recommendations for what movies/tv shows to watch
-Click on a movie/show poster, so that I can get more information about that movie/show
-Add movies and shows to a watchlist, so that I can save the things I would like to watch later
-Access movies/shows I previously saved even after refreshing the watchlist page
-Remove movies/shows from my watchlist, or clear all at once
+The application needs to...
+Use Bootstrap.
+Be deployed to GitHub Pages.
+Be interactive.
+Use at least two server-side APIs Links to an external site..
+Use modals instead of alerts, confirms, or prompts.
+Use client-side storage to store persistent data.
+Be responsive.
+Have a polished UI.
+Have a clean repository that meets quality coding standards.
+Have a quality README.
 
 ## Installation
 
