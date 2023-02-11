@@ -171,7 +171,7 @@ $(".watchlist-card").click(function () {
 	})
 });
 
-//Add to-, Remove from-, and Clear Watchlist Functionality
+//To navigate from the watchlist to the main search page
 $("#back-search").on("click", function () {
 	window.location.href = "index.html";
 });
