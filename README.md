@@ -13,7 +13,7 @@ The application was built to run in the browser, constructed using Bootstrap for
 
 The application, linked below, was deployed using GitHub Pages. 
 
-Simply upload the index.html and license.txt files, along with the JS, CSS and image folders, to the desired webserver.
+Simply upload the index.html, watchlist.html and license.txt files, along with the JS, CSS and image folders, to the desired webserver.
 
 ## Usage
 
